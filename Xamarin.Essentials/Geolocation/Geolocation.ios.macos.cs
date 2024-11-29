@@ -29,7 +29,7 @@ namespace Xamarin.Essentials
             return location?.ToLocation(reducedAccuracy);
         }
 
-        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken)
+        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken, bool usesNetworkProvider = true)
         {
             if (!CLLocationManager.LocationServicesEnabled)
                 throw new FeatureNotEnabledException("Location services are not enabled on device.");
