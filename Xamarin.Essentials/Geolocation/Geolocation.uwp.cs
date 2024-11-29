@@ -23,7 +23,7 @@ namespace Xamarin.Essentials
             return location?.Coordinate?.ToLocation();
         }
 
-        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken)
+        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken, bool usesNetworkProvider = true)
         {
             await Permissions.EnsureGrantedAsync<Permissions.LocationWhenInUse>();
 

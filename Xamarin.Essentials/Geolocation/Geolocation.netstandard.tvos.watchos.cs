@@ -9,7 +9,7 @@ namespace Xamarin.Essentials
         static Task<Location> PlatformLastKnownLocationAsync() =>
             throw ExceptionUtils.NotSupportedOrImplementedException;
 
-        static Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken) =>
+        static Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken, bool usesNetworkProvider = true) =>
             throw ExceptionUtils.NotSupportedOrImplementedException;
     }
 }

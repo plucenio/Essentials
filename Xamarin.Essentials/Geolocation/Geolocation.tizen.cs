@@ -10,7 +10,7 @@ namespace Xamarin.Essentials
 
         static Task<Location> PlatformLastKnownLocationAsync() => Task.FromResult(lastKnownLocation);
 
-        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken)
+        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken, bool usesNetworkProvider = true)
         {
             await Permissions.EnsureGrantedAsync<Permissions.LocationWhenInUse>();
 

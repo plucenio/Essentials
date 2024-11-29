@@ -35,7 +35,7 @@ namespace Xamarin.Essentials
             return bestLocation?.ToLocation();
         }
 
-        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken)
+        static async Task<Location> PlatformLocationAsync(GeolocationRequest request, CancellationToken cancellationToken, bool usesNetworkProvider)
         {
             await Permissions.EnsureGrantedOrRestrictedAsync<Permissions.LocationWhenInUse>();
 
@@ -62,7 +62,7 @@ namespace Xamarin.Essentials
             var providers = new List<string>();
             if (allProviders.Contains(LocationManager.GpsProvider))
                 providers.Add(LocationManager.GpsProvider);
-            if (allProviders.Contains(LocationManager.NetworkProvider))
+            if (usesNetworkProvider && allProviders.Contains(LocationManager.NetworkProvider))
                 providers.Add(LocationManager.NetworkProvider);
 
             if (providers.Count == 0)
